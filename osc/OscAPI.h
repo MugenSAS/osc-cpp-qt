@@ -20,18 +20,37 @@
  * THE SOFTWARE.
  */
 
-#ifndef OSC_VERSION_H_
-#define OSC_VERSION_H_
+#ifndef _OSC_API_H_
+#define _OSC_API_H_
 
-#include <osc/OscAPI.h>
+#include <QtGlobal>
 
-class OscVersion
-{
-public:
-	enum Version
-	{
-		OSC_10, OSC_11
-	};
-};
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+#ifdef Q_OS_WIN
+// Define to export or import depending if we are building or using the library.
+// OSC_EXPORT should only be defined when building.
+#if defined(OSC_EXPORT)
+#define OSC_API __declspec(dllexport)
+#else
+#define OSC_API __declspec(dllimport)
+#endif
+#else
+// Define empty for other platforms
+#define OSC_API
+#endif
+#else
+#ifdef Q_WS_WIN
+// Define to export or import depending if we are building or using the library.
+// OSC_EXPORT should only be defined when building.
+#if defined(OSC_EXPORT)
+#define OSC_API __declspec(dllexport)
+#else
+#define OSC_API __declspec(dllimport)
+#endif
+#else
+// Define empty for other platforms
+#define OSC_API
+#endif
+#endif
 
-#endif // OSC_VERSION_H_
+#endif // _OSC_API_H_

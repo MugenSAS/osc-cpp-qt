@@ -184,7 +184,7 @@ public:
 	 * @param s
 	 *            The string to add to the message.
 	 */
-	void pushString(QString& s);
+	void pushString(const QString& s);
 
 	/**
 	 * Appends a <i>Symbol</i> to OscMessage being composed.

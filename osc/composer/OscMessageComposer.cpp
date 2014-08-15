@@ -420,7 +420,7 @@ void OscMessageComposer::pushRGBA(qint32 r)
  * @param s
  *            The string to add to the message.
  */
-void OscMessageComposer::pushString(QString& s)
+void OscMessageComposer::pushString(const QString& s)
 {
 	try
 	{

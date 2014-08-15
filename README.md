@@ -1,4 +1,4 @@
 osc-cpp-qt
 ==========
 
-OSC (Open Source Control) implementation using Qt &amp; C++
+OSC (Open Sound Control) for C++ using Qt

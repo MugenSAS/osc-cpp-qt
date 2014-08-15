@@ -57,7 +57,7 @@ ByteBuffer* OscContentComposer::checkBufferSize(ByteBuffer* aBuffer, size_t aSiz
 {
 	if (aBuffer->getPosition() + (qint32)aSize > aBuffer->getCapacity())
 	{
-		qint32 newDataBufferSize = (qint32)pow(2, ceil(log((aSize)) / log(2)));
+		qint32 newDataBufferSize =  aBuffer->getCapacity() + (qint32)pow(2, ceil(log((aSize)) / log(2)));
 		ByteBuffer* newDataByteBuffer = ByteBuffer::allocate(newDataBufferSize);
 		if (aBuffer->getPosition() > 0)
 			newDataByteBuffer->put(aBuffer->getByteArray(), 0, aBuffer->getPosition());

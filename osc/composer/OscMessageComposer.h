@@ -220,6 +220,7 @@ protected:
 	virtual qint32 computeSize();
 
 private:
+	OscMessageComposer() {};
 	qint32 mArrayLevel;
 	QByteArray* mDataBuffer;
 	static qint32 mDataBufferSize;

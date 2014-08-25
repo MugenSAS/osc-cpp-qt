@@ -427,7 +427,7 @@ void OscMessageComposer::pushString(const QString& s)
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 's');
 		QByteArray sArray = s.toUtf8();
-		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length());
+		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length()+1);
 		mDataByteBuffer->put(&sArray);
 		mDataByteBuffer->put((char) '\0');
 		fillAlignment(mDataByteBuffer);
@@ -451,7 +451,7 @@ void OscMessageComposer::pushSymbol(QString& S)
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'S');
 		QByteArray sArray = S.toUtf8();
-		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length());
+		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length()+1);
 		mDataByteBuffer->put(&sArray);
 		mDataByteBuffer->put((char) '\0');
 		fillAlignment(mDataByteBuffer);

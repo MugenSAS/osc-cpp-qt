@@ -30,7 +30,7 @@
 
 qint32 OscMessageComposer::mDataBufferSize = 128;
 
-OscMessageComposer::OscMessageComposer(QString& address)
+OscMessageComposer::OscMessageComposer(const QString& address)
 : OscContentComposer(), mArrayLevel(0)
 {
     init(address);
@@ -44,7 +44,7 @@ OscMessageComposer::OscMessageComposer(const char* str)
 }
 
 void
-OscMessageComposer::init(QString& address)
+OscMessageComposer::init(const QString& address)
 {
     try
     {

@@ -23,6 +23,7 @@
 #include <tools/ByteBuffer.h>
 
 #include <QtCore/QString>
+#include <QDebug>
 
 ByteBuffer::ByteBuffer(QByteArray* src, bool owner)
 : mArray(src)

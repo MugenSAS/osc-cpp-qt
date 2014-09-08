@@ -33,3 +33,9 @@ OscContent::OscContent(ByteBuffer* packet)
 
 OscContent::~OscContent() {
 }
+
+ByteBuffer*
+OscContent::getPacket()
+{
+	return mPacket;
+}

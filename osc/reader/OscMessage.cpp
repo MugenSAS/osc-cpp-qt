@@ -47,6 +47,8 @@
 #include <osc/reader/types/OscTimetag.h>
 #include <osc/reader/types/OscTrue.h>
 
+#include <QDebug>
+
 /** */
 size_t OscMessage::getNumValues() const
 {
@@ -190,6 +192,8 @@ OscContent(packet)
 
 OscMessage::~OscMessage()
 {
+	delete mPacket;
+
 	for (qint32 i = 0; i < mValues.size(); i++)
 	{
 		delete (mValues[i]);

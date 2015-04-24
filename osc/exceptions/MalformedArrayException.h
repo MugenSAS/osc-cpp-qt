@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  */
  
-#ifndef BAD_ARRAY_EXCEPTION_H_
+#ifndef MALFORMED_ARRAY_EXCEPTION_H_
 #define MALFORMED_ARRAY_EXCEPTION_H_
 
 #include <QtCore/QException>

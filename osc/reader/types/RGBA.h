@@ -62,13 +62,13 @@ public:
 
 	void getUnpackedRGBA(qint32 &r, qint32 &g, qint32 &b, qint32 &a)
 	{
-		a = mPacked && 0xFF;
+        a = mPacked & 0xFF;
 		mPacked >>= 8;
-		b = mPacked && 0xFF;
+        b = mPacked & 0xFF;
 		mPacked >>= 8;
-		g = mPacked && 0xFF;
+        g = mPacked & 0xFF;
 		mPacked >>= 8;
-		r = mPacked && 0xFF;
+        r = mPacked & 0xFF;
 	}
 
 	bool operator== (const RGBA& rgba) const

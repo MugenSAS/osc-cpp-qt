@@ -55,6 +55,10 @@ QByteArray& OscBlob::get()
 		mData = QByteArray(mBlobSize, 0);
 		mPacket->setPosition(mPos + 4);
 		mPacket->get(&mData, 0, mBlobSize);
+
+        qint32 alignedEnd = (mPos + 4 + mBlobSize + 4) & ~((qint32)0x03);
+        mPacket->setPosition(alignedEnd);
+
 		return mData;
 	}
 	catch (const QException& e)

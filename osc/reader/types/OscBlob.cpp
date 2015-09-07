@@ -52,12 +52,14 @@ QByteArray& OscBlob::get()
 	try
 	{
 		mBlobSize = mPacket->getInt(mPos);
-		mData = QByteArray(mBlobSize, 0);
-		mPacket->setPosition(mPos + 4);
-		mPacket->get(&mData, 0, mBlobSize);
+        mPacket->setPosition(mPos + 4);
 
-        qint32 alignedEnd = (mPos + 4 + mBlobSize + 4) & ~((qint32)0x03);
-        mPacket->setPosition(alignedEnd);
+        if (mBlobSize != 0)
+        {
+            mData = QByteArray(mBlobSize, 0);
+            mPacket->get(&mData, 0, mBlobSize);
+            mPacket->setPosition((mBlobSize + 4) & ~((qint32)0x03));
+        }
 
 		return mData;
 	}

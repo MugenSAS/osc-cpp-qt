@@ -112,9 +112,15 @@ QByteArray OscValue::getString(ByteBuffer* packet, qint32 pos)
 	{
 		packet->setPosition(pos);
 		qint32 end = getLastStringIdx(packet);		
-		QByteArray bytes(end - pos, 0);
-        packet->get(&bytes, 0, end - pos);
-        packet->setPosition((end + 4) & ~((qint32)0x03));
+        qint32 size = end - pos;
+        QByteArray bytes(size, 0);
+        packet->get(&bytes, 0, size);
+
+        qint32 rem = 4 - ((size+1) % 4);
+        if (rem == 4)
+            rem = 0;
+
+        packet->setPosition(pos + size + 1 + rem);
 
 		return bytes;
 	}

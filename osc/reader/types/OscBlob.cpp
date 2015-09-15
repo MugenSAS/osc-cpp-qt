@@ -52,16 +52,18 @@ QByteArray& OscBlob::get()
 	try
 	{
 		mBlobSize = mPacket->getInt(mPos);
-        mPacket->setPosition(mPos + 4);
 
         if (mBlobSize != 0)
         {
-            qint32 prevPos = mPacket->getPosition();
-
             mData = QByteArray(mBlobSize, 0);
+            mPacket->setPosition(mPos + 4);
             mPacket->get(&mData, 0, mBlobSize);
 
-            mPacket->setPosition((prevPos + mBlobSize + 4) & ~((qint32)0x03));
+            qint32 rem = 4 - (mBlobSize % 4);
+            if (rem == 4)
+                rem = 0;
+
+            mPacket->setPosition(mPos + 4 + mBlobSize + rem);
         }
 
 		return mData;

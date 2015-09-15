@@ -51,8 +51,9 @@ OscMessageComposer::init(const QString& address)
         mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, address.length() + 1);
         QByteArray addressByteArray(address.toLocal8Bit());
         mHeaderByteBuffer->put(&addressByteArray);
-        mHeaderByteBuffer->put((char)0);
+        mHeaderByteBuffer->put((char)0);        
         fillAlignment(mHeaderByteBuffer);
+
         mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
         mHeaderByteBuffer->put((char) ',');
     }

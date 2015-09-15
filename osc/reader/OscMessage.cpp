@@ -47,8 +47,6 @@
 #include <osc/reader/types/OscTimetag.h>
 #include <osc/reader/types/OscTrue.h>
 
-#include <QDebug>
-
 /** */
 size_t OscMessage::getNumValues() const
 {
@@ -173,9 +171,11 @@ OscContent(packet)
 					break;
 				default:
 					throw UnknownTagException();
-			}
+			}            
+
 			if (newValue != 0)
 				mValues.push_back(newValue); // push this Value to the Value list
+
 		} while (mPacket->get(tagsIdx++) != 0);
 	}
 	catch (BufferUnderflowException&)

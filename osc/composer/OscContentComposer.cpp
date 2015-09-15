@@ -82,8 +82,8 @@ void OscContentComposer::fillByteBuffer(ByteBuffer* dst)
 }
 
 void OscContentComposer::fillAlignment(ByteBuffer*& dst)
-{
-	qint32 size = 4 - (dst->getPosition() & 0x3);
+{    
+    qint32 size = 4 - ((dst->getPosition() + 4) % 4);
 	if (size != 4)
 	{
 		try

@@ -87,7 +87,7 @@ char OscValue::toChar()
 }
 
 /**
- * Returns the position of the next non-null character in the packet.
+ * Returns the position of the next null character in the packet.
  *
  * @return the position.
  */
@@ -111,11 +111,11 @@ QByteArray OscValue::getString(ByteBuffer* packet, qint32 pos)
 	try
 	{
 		packet->setPosition(pos);
-		qint32 end = getLastStringIdx(packet);
-		qint32 alignedEnd = (end + 4) & ~((qint32)0x03);
+		qint32 end = getLastStringIdx(packet);		
 		QByteArray bytes(end - pos, 0);
-		packet->get(&bytes, 0, end - pos);
-		packet->setPosition(alignedEnd);
+        packet->get(&bytes, 0, end - pos);
+        packet->setPosition((end + 4) & ~((qint32)0x03));
+
 		return bytes;
 	}
 	catch (const QException& e)

@@ -60,6 +60,8 @@ OscBundle::OscBundle(ByteBuffer* packet, qint32 bufferSize)
 
 OscBundle::~OscBundle()
 {
+	delete mPacket;
+
 	for (qint32 i = 0; i < mContentList.size(); i++)
 	{
 		delete (mContentList[i]);

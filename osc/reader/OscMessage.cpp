@@ -171,9 +171,11 @@ OscContent(packet)
 					break;
 				default:
 					throw UnknownTagException();
-			}
+			}            
+
 			if (newValue != 0)
 				mValues.push_back(newValue); // push this Value to the Value list
+
 		} while (mPacket->get(tagsIdx++) != 0);
 	}
 	catch (BufferUnderflowException&)
@@ -190,6 +192,8 @@ OscContent(packet)
 
 OscMessage::~OscMessage()
 {
+	delete mPacket;
+
 	for (qint32 i = 0; i < mValues.size(); i++)
 	{
 		delete (mValues[i]);

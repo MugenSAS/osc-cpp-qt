@@ -78,6 +78,8 @@ OscReader::OscReader(QByteArray* src, qint32 offset, qint32 size)
 OscReader::~OscReader()
 {
 	// DO NOT DESTROY OSCMESSAGE OR OSCBUNDLE
+	// delete mContent
+	// delete mPacket;
 }
 
 void

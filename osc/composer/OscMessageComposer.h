@@ -36,7 +36,7 @@ public:
 	 * @param address
 	 *            The address pattern to set to the message.
 	 */
-	OscMessageComposer(QString& address);
+	OscMessageComposer(const QString& address);
 
     /**
      * Build a new OSC message
@@ -55,7 +55,7 @@ public:
 	 * @brief init
 	 * @param address
 	 */
-    void init(QString& address);
+	void init(const QString& address);
 
 	/**
 	 * Gets the complete OSC message for the current message being composed.
@@ -220,6 +220,7 @@ protected:
 	virtual qint32 computeSize();
 
 private:
+	OscMessageComposer() {};
 	qint32 mArrayLevel;
 	QByteArray* mDataBuffer;
 	static qint32 mDataBufferSize;

@@ -52,9 +52,20 @@ QByteArray& OscBlob::get()
 	try
 	{
 		mBlobSize = mPacket->getInt(mPos);
-		mData = QByteArray(mBlobSize, 0);
-		mPacket->setPosition(mPos + 4);
-		mPacket->get(&mData, 0, mBlobSize);
+
+        if (mBlobSize != 0)
+        {
+            mData = QByteArray(mBlobSize, 0);
+            mPacket->setPosition(mPos + 4);
+            mPacket->get(&mData, 0, mBlobSize);
+
+            qint32 rem = 4 - (mBlobSize % 4);
+            if (rem == 4)
+                rem = 0;
+
+            mPacket->setPosition(mPos + 4 + mBlobSize + rem);
+        }
+
 		return mData;
 	}
 	catch (const QException& e)

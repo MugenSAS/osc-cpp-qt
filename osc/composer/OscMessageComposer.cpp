@@ -30,7 +30,7 @@
 
 qint32 OscMessageComposer::mDataBufferSize = 128;
 
-OscMessageComposer::OscMessageComposer(QString& address)
+OscMessageComposer::OscMessageComposer(const QString& address)
 : OscContentComposer(), mArrayLevel(0)
 {
     init(address);
@@ -44,15 +44,16 @@ OscMessageComposer::OscMessageComposer(const char* str)
 }
 
 void
-OscMessageComposer::init(QString& address)
+OscMessageComposer::init(const QString& address)
 {
     try
     {
         mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, address.length() + 1);
         QByteArray addressByteArray(address.toLocal8Bit());
         mHeaderByteBuffer->put(&addressByteArray);
-        mHeaderByteBuffer->put((char)0);
+        mHeaderByteBuffer->put((char)0);        
         fillAlignment(mHeaderByteBuffer);
+
         mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
         mHeaderByteBuffer->put((char) ',');
     }
@@ -178,10 +179,13 @@ void OscMessageComposer::pushBlob(QByteArray* src, qint32 offset, qint32 length)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'b');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 4);
 		mDataByteBuffer->putInt(length);
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, length);
 		mDataByteBuffer->put(src, offset, length);
+
 		fillAlignment(mDataByteBuffer);
 	}
 	catch (const QException& e)
@@ -228,6 +232,7 @@ void OscMessageComposer::pushChar(char c)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'c');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 4);
 		mDataByteBuffer->putInt(c);
 	}
@@ -249,6 +254,7 @@ void OscMessageComposer::pushDouble(double d)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'd');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 8);
 		mDataByteBuffer->putDouble(d);
 	}
@@ -286,6 +292,7 @@ void OscMessageComposer::pushFloat(float f)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'f');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 4);
 		mDataByteBuffer->putFloat(f);
 	}
@@ -323,6 +330,7 @@ void OscMessageComposer::pushInt32(qint32 i)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'i');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 4);
 		mDataByteBuffer->putInt(i);
 	}
@@ -344,6 +352,7 @@ void OscMessageComposer::pushLong(qint64 l)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'h');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 8);
 		mDataByteBuffer->putLong(l);
 	}
@@ -365,6 +374,7 @@ void OscMessageComposer::pushMidi(char port, char status, char data1, char data2
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'm');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 4);
 		mDataByteBuffer->put(port);
 		mDataByteBuffer->put(status);
@@ -405,6 +415,7 @@ void OscMessageComposer::pushRGBA(qint32 r)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'r');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 4);
 		mDataByteBuffer->putInt(r);
 	}
@@ -426,10 +437,12 @@ void OscMessageComposer::pushString(const QString& s)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 's');
+
 		QByteArray sArray = s.toUtf8();
-		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length());
+		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length()+1);
 		mDataByteBuffer->put(&sArray);
 		mDataByteBuffer->put((char) '\0');
+
 		fillAlignment(mDataByteBuffer);
 	}
 	catch (const BufferUnderflowException& e)
@@ -450,10 +463,12 @@ void OscMessageComposer::pushSymbol(QString& S)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 'S');
+
 		QByteArray sArray = S.toUtf8();
-		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length());
+		mDataByteBuffer = checkBufferSize(mDataByteBuffer, sArray.length()+1);
 		mDataByteBuffer->put(&sArray);
 		mDataByteBuffer->put((char) '\0');
+
 		fillAlignment(mDataByteBuffer);
 	}
 	catch (const BufferUnderflowException& e)
@@ -474,6 +489,7 @@ void OscMessageComposer::pushTimeTag(QDateTime& t)
 	{
 		mHeaderByteBuffer = checkBufferSize(mHeaderByteBuffer, 1);
 		mHeaderByteBuffer->put((char) 't');
+
 		mDataByteBuffer = checkBufferSize(mDataByteBuffer, 8);
 
 		NtpTimestamp ntp = NtpTimestamp::fromDateTime(t);

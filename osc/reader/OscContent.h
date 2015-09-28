@@ -39,6 +39,8 @@ class OscContent
 public:
 	virtual ~OscContent();
 
+	ByteBuffer* getPacket();
+
 protected:
 	qint32 mDataIdx;
 	qint32 mStartIdx;

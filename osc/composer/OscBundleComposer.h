@@ -26,7 +26,7 @@
 #include <osc/composer/OscContentComposer.h>
 #include <osc/composer/OscMessageComposer.h>
 
-class OscBundleComposer : public OscContentComposer
+class OSC_API OscBundleComposer : public OscContentComposer
 {
 private:
 	QByteArray* mData;

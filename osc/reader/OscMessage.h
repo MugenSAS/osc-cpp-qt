@@ -41,7 +41,7 @@ class OscValue;
  * </ul>
  * </p>
  */
-class OscMessage : public OscContent
+class OSC_API OscMessage : public OscContent
 {
 public:
 

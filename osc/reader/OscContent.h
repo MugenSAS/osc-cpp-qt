@@ -25,6 +25,7 @@
 
 #include <QtCore/QtGlobal>
 #include <QtCore/QVector>
+#include <osc/OscAPI.h>
 
 class OscBundle;
 class OscMessage;
@@ -33,7 +34,7 @@ class ByteBuffer;
 /**
  * Abstract class to manage packet embedded content as objects.
  */
-class OscContent
+class OSC_API OscContent
 {
 
 public:

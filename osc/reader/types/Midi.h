@@ -23,7 +23,9 @@
 #ifndef MIDI_H_
 #define MIDI_H_
 
-class Midi
+#include <osc/OscAPI.h>
+
+class OSC_API Midi
 {
 private:
 	char mPort;

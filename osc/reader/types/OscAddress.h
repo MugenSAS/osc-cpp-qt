@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Address-Pattern. */
-class OscAddress : public OscValue
+class OSC_API OscAddress : public OscValue
 {
 
 public:

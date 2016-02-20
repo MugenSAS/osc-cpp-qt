@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Midi message. */
-class OscMidi : public OscValue
+class OSC_API OscMidi : public OscValue
 {
 public:
 	virtual bool toBoolean();

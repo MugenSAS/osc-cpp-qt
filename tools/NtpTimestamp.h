@@ -25,8 +25,9 @@
 
 #include <QDateTime>
 #include <QtEndian>
+#include <osc/OscAPI.h>
 
-class NtpTimestamp
+class OSC_API NtpTimestamp
 {
 public:
 

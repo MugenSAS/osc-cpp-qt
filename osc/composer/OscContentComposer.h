@@ -29,7 +29,7 @@
 
 class ByteBuffer;
 
-class OscContentComposer
+class OSC_API OscContentComposer
 {
 protected:
 	virtual ~OscContentComposer();

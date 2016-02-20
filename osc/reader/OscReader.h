@@ -31,7 +31,7 @@ class OscBundle;
 class OscMessage;
 class OscContent;
 
-class OscReader
+class OSC_API OscReader
 {
 public:
 	/**

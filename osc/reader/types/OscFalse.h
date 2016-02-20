@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-FALSE tag. */
-class OscFalse : public OscValue
+class OSC_API OscFalse : public OscValue
 {
 public:
 	virtual bool isFalse();

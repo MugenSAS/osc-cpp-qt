@@ -3,7 +3,7 @@ QT       -= gui
 TARGET = osc
 TEMPLATE = lib
 
-DEFINES += OSC_LIBRARY
+DEFINES += OSC_EXPORT
 
 CONFIG(debug, debug|release) {
     DESTDIR = $$PWD/bin/debug
@@ -41,6 +41,13 @@ HEADERS += \
     osc/exceptions/SymbolConversionException.h \
     osc/exceptions/TimetagConversionException.h \
     osc/exceptions/UnknownTagException.h \
+    osc/OscAPI.h \
+    osc/OscPatternMatching.h \
+    osc/OscVersion.h \
+    osc/reader/OscBundle.h \
+    osc/reader/OscContent.h \
+    osc/reader/OscMessage.h \
+    osc/reader/OscReader.h \
     osc/reader/types/Midi.h \
     osc/reader/types/OscAddress.h \
     osc/reader/types/OscArrayBegin.h \
@@ -64,25 +71,24 @@ HEADERS += \
     osc/reader/types/OscValue.h \
     osc/reader/types/RGBA.h \
     osc/reader/types/Symbol.h \
-    osc/reader/OscBundle.h \
-    osc/reader/OscContent.h \
-    osc/reader/OscMessage.h \
-    osc/reader/OscReader.h \
-    osc/osc_global.h \
-    osc/OscPatternMatching.h \
-    osc/OscVersion.h \
+    tools/ByteBuffer.h \
+    tools/ByteOrder.h \
     tools/exceptions/BufferOverflowException.h \
     tools/exceptions/BufferUnderflowException.h \
     tools/exceptions/IllegalArgumentException.h \
     tools/exceptions/IndexOutOfBoundsException.h \
-    tools/ByteBuffer.h \
-    tools/ByteOrder.h \
     tools/NtpTimestamp.h
 
 SOURCES += \
     osc/composer/OscBundleComposer.cpp \
     osc/composer/OscContentComposer.cpp \
     osc/composer/OscMessageComposer.cpp \
+    osc/OscPatternMatching.cpp \
+    osc/reader/OscBundle.cpp \
+    osc/reader/OscContent.cpp \
+    osc/reader/OscMessage.cpp \
+    osc/reader/OscReader.cpp \
+    osc/reader/OscValue.cpp \
     osc/reader/types/OscAddress.cpp \
     osc/reader/types/OscArrayBegin.cpp \
     osc/reader/types/OscArrayEnd.cpp \
@@ -102,12 +108,6 @@ SOURCES += \
     osc/reader/types/OscTags.cpp \
     osc/reader/types/OscTimeTag.cpp \
     osc/reader/types/OscTrue.cpp \
-    osc/reader/OscBundle.cpp \
-    osc/reader/OscContent.cpp \
-    osc/reader/OscMessage.cpp \
-    osc/reader/OscReader.cpp \
-    osc/reader/OscValue.cpp \
-    osc/OscPatternMatching.cpp \
     tools/ByteBuffer.cpp \
     tools/ByteOrder.cpp \
     tools/NtpTimestamp.cpp

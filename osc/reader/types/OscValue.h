@@ -23,6 +23,7 @@
 #ifndef OSC_VALUE_H_
 #define OSC_VALUE_H_
 
+#include <osc/OscAPI.h>
 #include <QtCore/QByteArray>
 #include <QtCore/QString>
 #include <osc/reader/types/Midi.h>
@@ -35,7 +36,7 @@ class ByteBuffer;
  * Abstract class representing an OSC value. This class is derivated to
  * manage all OSC common types.
  */
-class OscValue
+class OSC_API OscValue
 {
 public:
 

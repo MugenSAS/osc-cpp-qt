@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-RGBA-color value. */
-class OscRGBA : public OscValue
+class OSC_API OscRGBA : public OscValue
 {
 public:
 	virtual bool toBoolean();

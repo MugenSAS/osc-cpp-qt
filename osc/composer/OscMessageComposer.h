@@ -27,7 +27,7 @@
 #include <QDateTime>
 #include <osc/reader/types/OscTimetag.h>
 
-class OscMessageComposer : public OscContentComposer
+class OSC_API OscMessageComposer : public OscContentComposer
 {
 public:
 	/**

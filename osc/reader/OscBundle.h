@@ -26,7 +26,7 @@
 #include <osc/reader/OscContent.h>
 #include <QDateTime>
 
-class OscBundle : public OscContent {
+class OSC_API OscBundle : public OscContent {
 public:
 
 	/** TODO */

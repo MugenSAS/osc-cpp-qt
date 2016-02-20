@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Float value. */
-class OscFloat : public OscValue
+class OSC_API OscFloat : public OscValue
 {
 public:
 	virtual bool toBoolean();

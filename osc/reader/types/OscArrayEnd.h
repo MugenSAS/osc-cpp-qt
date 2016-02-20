@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Array-End. */
-class OscArrayEnd : public OscValue
+class OSC_API OscArrayEnd : public OscValue
 {
 public:
 	virtual bool isArrayEnd();

@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-TRUE tag. */
-class OscTrue : public OscValue
+class OSC_API OscTrue : public OscValue
 {
 public:
 	virtual bool isTrue();

@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Infinitum tag. */
-class OscInfinitum : public OscValue
+class OSC_API OscInfinitum : public OscValue
 {
 public:
 	virtual bool isInfinitum();

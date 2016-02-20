@@ -28,7 +28,7 @@
 /**
  * Class representing an OSC-int32.
  */
-class OscInteger : public OscValue
+class OSC_API OscInteger : public OscValue
 {
 public:
 	virtual bool toBoolean();

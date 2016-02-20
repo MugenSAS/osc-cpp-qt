@@ -45,7 +45,7 @@
  * </ul>
  *
  */
-class ByteBuffer
+class OSC_API ByteBuffer
 {
 public:
 	/**

@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Nil tag. */
-class OscNil : public OscValue
+class OSC_API OscNil : public OscValue
 {
 public:
 	virtual bool isNil();

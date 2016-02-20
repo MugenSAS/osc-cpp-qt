@@ -45,8 +45,8 @@ int OSCPatternMatching::osc_match(const char *pattern, const char *address, int 
 {
 	if(!strcmp(pattern, address))
 	{
-		*pattern_offset = strlen(pattern);
-		*address_offset = strlen(address);
+        *pattern_offset = (int)strlen(pattern);
+        *address_offset = (int)strlen(address);
 		return OSC_MATCH_ADDRESS_COMPLETE | OSC_MATCH_PATTERN_COMPLETE;
 	}
 

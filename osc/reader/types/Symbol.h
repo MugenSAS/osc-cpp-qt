@@ -24,8 +24,9 @@
 #define SYMBOL_H_
 
 #include <QtCore/QString>
+#include <osc/OscAPI.h>
 
-class Symbol
+class OSC_API Symbol
 {
 public:
 	Symbol(const QString& aString) :

@@ -23,7 +23,9 @@
 #ifndef BYTE_ORDER_H_
 #define BYTE_ORDER_H_
 
-class ByteOrder
+#include <osc/OscAPI.h>
+
+class OSC_API ByteOrder
 {
 public:
 	/**

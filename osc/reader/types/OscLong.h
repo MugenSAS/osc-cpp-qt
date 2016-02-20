@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-int64 value. */
-class OscLong : public OscValue
+class OSC_API OscLong : public OscValue
 {
 public:
 	virtual bool toBoolean();

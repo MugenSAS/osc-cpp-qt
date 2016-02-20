@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing the type tags string of this message. */
-class OscTags: public OscValue
+class OSC_API OscTags: public OscValue
 {
 public:
 	virtual bool toBoolean();

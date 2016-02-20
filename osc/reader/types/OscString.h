@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-string value. */
-class OscString : public OscValue
+class OSC_API OscString : public OscValue
 {
 public:
 	virtual bool toBoolean();

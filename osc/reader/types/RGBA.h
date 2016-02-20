@@ -23,7 +23,9 @@
 #ifndef RGBA_H_
 #define RGBA_H_
 
-class RGBA
+#include <osc/OscAPI.h>
+
+class OSC_API RGBA
 {
 private:
 	qint32 mPacked;

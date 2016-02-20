@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Blob. */
-class OscBlob : public OscValue
+class OSC_API OscBlob : public OscValue
 {
 public:
 	virtual bool toBoolean();

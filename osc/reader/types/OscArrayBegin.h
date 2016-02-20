@@ -26,7 +26,7 @@
 #include <osc/reader/types/OscValue.h>
 
 /** Class representing an OSC-Array-Begin. */
-class OscArrayBegin : public OscValue
+class OSC_API OscArrayBegin : public OscValue
 {
 public:
 	virtual bool isArrayBegin();

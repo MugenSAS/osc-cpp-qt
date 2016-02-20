@@ -27,7 +27,7 @@
 #include <tools/NtpTimestamp.h>
 
 /** Class representing an OSC-Timetag value. */
-class OscTimetag : public OscValue
+class OSC_API OscTimetag : public OscValue
 {
 public:
 	virtual bool toBoolean();

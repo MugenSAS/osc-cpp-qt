@@ -23,14 +23,14 @@
 #ifndef OSC_PATTERN_MATCHING_H_
 #define OSC_PATTERN_MATCHING_H_
 
-#include <QtCore/QtGlobal>
+#include <osc/OscAPI.h>
 
 /*! \class OSCPatternMatching
  * \brief Class which provides OSC messages pattern matching
  *
  *  This class provides a static method for OSC messages pattern matching
  */
-class OSCPatternMatching
+class OSC_API OSCPatternMatching
 {
 public:
 

@@ -325,7 +325,9 @@ char ByteBuffer::getChar(qint32 index)
 double ByteBuffer::getDouble()
 {
 	qint64 l = getLong();
-	return *(double*)&l;
+    qint64* _l = &l;
+    double* _d = (double*)_l;
+    return *_d;
 }
 
 /**
@@ -345,7 +347,9 @@ double ByteBuffer::getDouble()
 double ByteBuffer::getDouble(qint32 index)
 {
 	qint64 l = getLong(index);
-	return *(double*)&l;
+    qint64* _l = &l;
+    double* _d = (double*)_l;
+    return *_d;
 }
 
 /**
@@ -362,7 +366,9 @@ double ByteBuffer::getDouble(qint32 index)
 float ByteBuffer::getFloat()
 {
 	qint32 i = getInt();
-	return *(float*)&i;
+    qint32* _i = &i;
+    float* _f = (float*)_i;
+    return *_f;
 }
 
 /**
@@ -382,7 +388,9 @@ float ByteBuffer::getFloat()
 float ByteBuffer::getFloat(qint32 index)
 {
 	qint32 i = getInt(index);
-	return *(float*)&i;
+    qint32* _i = &i;
+    float* _f = (float*)_i;
+    return *_f;
 }
 
 /**
@@ -738,7 +746,9 @@ ByteBuffer* ByteBuffer::putChar(qint32 index, char value)
  */
 ByteBuffer* ByteBuffer::putDouble(double value)
 {
-	return putLong(*(qint64*)&value);
+    double* _v = &value;
+    qint64* _d = (qint64*)_v;
+    return putLong(*_d);
 }
 
 /**
@@ -758,7 +768,9 @@ ByteBuffer* ByteBuffer::putDouble(double value)
  */
 ByteBuffer* ByteBuffer::putDouble(qint32 index, double value)
 {
-	return putLong(index, *(qint64*)&value);
+    double* _v = &value;
+    qint64* _d = (qint64*)_v;
+    return putLong(index, *_d);
 }
 
 /**
@@ -775,7 +787,9 @@ ByteBuffer* ByteBuffer::putDouble(qint32 index, double value)
  */
 ByteBuffer* ByteBuffer::putFloat(float value)
 {
-	return putInt(*(qint32*)&value);
+    float* _v = &value;
+    qint32* _d = (qint32*)_v;
+    return putInt(*_d);
 }
 
 /**
@@ -795,7 +809,9 @@ ByteBuffer* ByteBuffer::putFloat(float value)
  */
 ByteBuffer* ByteBuffer::putFloat(qint32 index, float value)
 {
-	return putInt(index, *(qint32*)&value);
+    float* _v = &value;
+    qint32* _d = (qint32*)_v;
+    return putInt(index, *_d);
 }
 
 /**
